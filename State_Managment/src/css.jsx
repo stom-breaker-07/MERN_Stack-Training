@@ -1,4 +1,5 @@
 import React from "react";
+import "./External.css";
 
 const Css = () => {
   const style = {
@@ -16,8 +17,13 @@ const Css = () => {
         <p style={{color:value>30?"red":"blue"}}>Temp : {value}°C</p>
     );
   }
-  Greeting();
-  Temperature(35);
+
+  return (<div>
+      <h1 className="title">Hello External CSS</h1>
+      {Greeting()}
+      {Temperature({ value: 31 })}
+    </div>
+  );
 };
 
 export default Css;
