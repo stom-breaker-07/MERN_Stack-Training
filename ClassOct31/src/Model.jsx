@@ -1,8 +1,8 @@
 import React, { Children } from "react";
-import ReactDOM from "react-dom";
+import {createPortal} from "react-dom";
 
-function Model({ Closeit , childern }) {
-  return ReactDOM.createPortal(
+function Model({children , setPopup}) {
+  return createPortal(
     <div>
       <>
         <div
@@ -19,15 +19,22 @@ function Model({ Closeit , childern }) {
             color: "white",
             fontSize: "1.5rem",
           }}
-          onClick={Closeit}
         >
-          <div onClick={(e) => e.stopPropagation()}>
+          <div>
+             <div
+            style={{
+              background: "#333",
+              padding: "20px",
+              borderRadius: "10px",
+            }}
+          >
             {children}
+          </div>
           </div>
         </div>
       </>
     </div>,
-    document.getElementById("root")
+    document.getElementById("modal-root")
   );
 }
 
